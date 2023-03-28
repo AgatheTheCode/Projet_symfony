@@ -12,8 +12,24 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
     </head>
+    <header>
+        {% block header %}
+            <nav>
+                <a href="{{ path('home') }}">Home</a>
+                <a href="{{ path('categorie') }}"></a>
+                <a href="{{ path('panier') }}">Cart</a>
+                <a href="{{ path('login') }}">Login</a>
+                <a href="{{ path('register') }}">Register</a>
+                <a href="{{ path('contact') }}">Contact</a>
+
+            </nav>
+        {% endblock %}
+    </header>
     <body>
         {% block body %}{% endblock %}
     </body>
+    {% block footer %}
+    {% endblock %}
 </html>
