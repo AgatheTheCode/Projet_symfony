@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block main %}
+    <section class="sect_form">
+    {% for element in cat %}
+
+        <article class="form">
+            <h2 class="form_admin">{{element.titre}}</h2>
+            <form action={{element.phpaction}} method="post">
+                <div class="form-groupA">
+                    {% for item in element.form %}
+                    <label>{{item.nom}}</label>
+                    <input class="form-control"></input>
+                    <span class="invalid-feedback"></span>
+                    {% endfor %}
+                </div>
+                <div class="form-groupB">
+                    <input type="submit" class="btn_envoie" value="Submit">
+                    <input type="reset" class="btn_cancel" value="Reset">
+                </div>
+            </form>
+        </article>
+
+        {% endfor %}
+            </section>
+{% endblock main %}

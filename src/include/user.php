@@ -1,9 +1,11 @@
 <?php
-include_once('function.php');
-global $db;
+include_once 'connect.php';
+$db = connectDB();
 //fonction de creation de compte
-function creationDeCompte()
+
+function creationDeCompte(): void
 {
+    global $db;
     // Define variables and initialize with empty values
     $username = $password = $confirm_password = "test";
     $username_err = $password_err = $confirm_password_err = "test";
@@ -67,7 +69,7 @@ function creationDeCompte()
                 // Prepare an insert statement
                 $sql = "INSERT INTO client (pseudo_client, mdp_client) VALUES (:pseudo_client, :mdp_client)";
 
-                if ($stmt = $pdo->prepare($sql)) {
+                if ($stmt = $db->prepare($sql)) {
                     // Bind variables to the prepared statement as parameters
                     $stmt->bindParam(":pseudo_client", $param_username, PDO::PARAM_STR);
                     $stmt->bindParam(":mdp_client", $param_password, PDO::PARAM_STR);
@@ -98,8 +100,9 @@ function creationDeCompte()
     }
 }
 
-function login_client()
+function login_client(): void
 {
+    global $db;
     // Initialize the session
     session_start();
 
@@ -137,6 +140,7 @@ function login_client()
 
         // VERIFICATION DES INFOS FORMULAIRES
         if (empty($username_err) && empty($password_err)) {
+            $param_username = trim($_POST["pseudo_client"]);
             // Requête
             $sql = "SELECT id_client, pseudo_client, mdp_client FROM client WHERE pseudo_client = :pseudo_client";
 

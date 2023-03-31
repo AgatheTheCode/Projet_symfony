@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+{% block main %}
+    <section>
+        <article>
+            <h3> Résultat de la recherche </h3>
+            <div class="divprod">
+                
+                    <ul class="Liste_Produit_head">
+                        <li class ="Liste_Produit_child_head" ><p>Nom du produit</p></a>
+                            <p>Quantité d'articles en stock</p>
+                            <p>Prix de l'article</p>
+                            <p>Note des utilisateurs</p>
+                            <p> Référence </p>
+                        </li>
+                    {% for element in produit %}
+                        <li class ="Liste_Produit_child" ><a href="produits_detail.php?id={{ element.id_produit }}"><p>{{ element.nom_produit }}</p>
+                            <p>{{element.qte_produit}}</p>
+                            <p>{{element.prix_produit}}</p>
+                            <p>{{element.note_produit}}</p>
+                            <p>000 {{element.id_categorie}}{{element.id_genre}} {{element.id_produit}}</p></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                
+                </div>
+        </article>
+    </section>
+{% endblock main %}
+
+

@@ -1,0 +1,132 @@
+img{
+    max-width: 400px;
+    height: auto;
+}
+h3{
+    font-size: 400%;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+}
+h4{
+    font-size: large;
+    font-weight: 500;
+    margin: 5px;
+    padding: 5px;
+}
+.cateart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px;
+    padding: 15px;
+}
+.ListeN1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    flex: 0 0 25%;
+    transition: .2s;
+    background-color: rgba(187, 187, 187, 0.26);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 25px;
+
+}
+.ListeN1:hover{
+    font-size: 200%;
+    color : orange;
+    transform: scale(1.2);
+    background-color: rgba(174, 0, 255, 0.493);
+    box-shadow: 0px 0px 15px 5px #C50BFF;
+}
+
+.ListeN1 div{
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40%;
+    margin :15px ;
+    padding : 5px;
+    border-radius: 25px;
+    background-color: rgba(187, 187, 187, 0.26);
+
+}
+
+.ListeN1 p{
+    box-sizing: border-box;
+
+}
+.ListeN1 a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.ListeN1 img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+}
+.cat_detail img{
+    margin : 25px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px 5px black;
+}
+.cat_detail{
+    padding: 10px;
+    margin : 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.cat_det{
+    padding: 10px;
+    margin : 10px;
+    flex-wrap: wrap;
+    display: flex;
+}
+.cat_prod{
+    padding: 10px;
+    margin : 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: whitesmoke;
+    border-radius: 25px;
+    max-width: 500px;
+}
+.cat_prod p{
+    font-size: 130%;
+    font-weight: 600 ;
+    max-width: 250px;
+}
+
+.wrap_prod{
+    margin: auto;
+    display: flex;
+}
+.cat_detail img:hover{
+    margin : 25px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px 5px rgb(255, 0, 191);
+}
+.main_prod{
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 25%;
+    flex-wrap: wrap;
+    justify-items: center;
+}

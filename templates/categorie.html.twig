@@ -1,4 +1,47 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <h1>{{ titre }}</h1>
+    {% block main %}
+        <section>
+            <article class="cateart">
+                {% for element in categorie %}
+                    <div class="ListeN1">
+                        <h4>{{ element.nom_categorie }} </h4>
+                        <div>
+                            <a href="categories_detail.php?id={{ element.id_categorie }}">
+                                <img src="../assets/{{ element.image_categorie }}" alt="">
+                            </a>
+                        </div>
+                        {% set stockCat = 0 %}
+                        {% for item in categorie %}
+                            {% if item.id_categorie == element.id_categorie %}
+                                {% set stockCat = stockCat + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </article>
+            <h3> Nos Genre </h3>
+            <article class="cateart">
+                {% for item in genre %}
+                    <div class="ListeN1">
+                        <h4>{{ item.nom_genre }} </h4>
+                        <div>
+                            <a href="genre_detail.php?id={{ item.id_genre }}">
+                                <img src="../assets/{{ item.image_genre }}" alt="">
+                            </a>
+                        </div>
+                        {% set stockGenre = 0 %}
+                        {% for element in genre %}
+                            {% if element.id_genre == item.id_genre %}
+                                {% set stockGenre = stockGenre + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </article>
+        </section>
+    {% endblock main %}%}
+    {% block footer %}
+    {% endblock footer %}
 {% endblock %}

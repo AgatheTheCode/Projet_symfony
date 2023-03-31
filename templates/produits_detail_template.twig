@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+{% block main %}
+<section>
+    <article class="artProd">
+        <h3> Détail : {{produit.nom_produit}} </h3>
+        <div class="divproddet">
+        {% for element in produit %}
+            <ul class="detail_Produit">
+                <li>{{ element.nom_produit }}</a></li>
+                <li><img src="{{element.image_produit}}.jpg" alt=""></li>
+                <li>Genre :{{ element.nom_genre }} </li>
+                <li>Categorie :{{ element.nom_categorie }} </li>
+                <li>Note :{{ element.note_produit }}/5 </li>
+                <li>Prix :{{ element.prix_produit }} </li>
+                <li> Référence : 000 {{ element.id_categorie }} {{ element.id_genre}} {{ element.id_produit }}</li>
+                <li>Quantité en stock :{{ element.qte_produit }} </li>
+            </ul>
+            <div class ="panier">
+            <input type="number" step="1" min="0" max="{{element.qte_produit}}" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+            <label class="ajouterPanier">
+            <input type="submit" placeholder="ajouter">
+            </label>
+            </div>
+        {% endfor %}
+        </div>
+    </article>
+</section>
+{% endblock main %}
+

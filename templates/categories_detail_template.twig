@@ -1,0 +1,24 @@
+            {% extends "base.twig" %}
+{% block main %}
+    <section>
+        <article class="cat_detail">
+            {% for categorie in categorie_det %}
+                <div class="cat_det">
+                    <h3>{{ categorie.nom_categorie }}</h3>
+                    <img src="../assets/{{categorie.image_categorie}}" alt="">
+                </div>
+            {% endfor %}
+            <h2> Produit de la categorie : {{ element.nom_categorie }} </h2>
+            {% for element in categorie %}
+                <div class="cat_prod">
+                    <p>{{ element.nom_produit }}</p>
+                    <a href="produits_detail.php?id={{ element.id_produit }}"><img src="../assets/{{ element.image_produit }}.jpg" alt=""></a>
+                    <p>Note : {{ element.note_produit }}/5 </p>
+                    <p>Prix : {{ element.prix_produit }}€</p>
+                </div>
+            {% endfor %}
+            </div>
+        </article>
+    </section>
+{% endblock main %}
+

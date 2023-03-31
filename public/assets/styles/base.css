@@ -1,0 +1,475 @@
+/*all*/
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translateX(-700px)
+    }
+
+    100% {
+        transform: translateX(700px)
+    }
+}
+
+@keyframes cligno {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px rgb(212, 0, 255),
+            0 0 82px rgb(212, 0, 255),
+            0 0 92px rgb(212, 0, 255),
+            0 0 102px rgb(212, 0, 255),
+            0 0 151px rgb(212, 0, 255);
+    }
+
+    20%,
+    24% {
+        text-shadow: none;
+    }
+}
+
+@keyframes clignoboite {
+
+    0%,
+    18%,
+    20%,
+    25%,
+    53%,
+    57%,
+    100% {
+        box-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px rgb(212, 0, 255),
+            0 0 82px rgb(212, 0, 255),
+            0 0 92px rgb(212, 0, 255),
+            0 0 102px rgb(212, 0, 255),
+            0 0 151px rgb(212, 0, 255);
+    }
+
+    22%,
+    55% {
+        box-shadow: none;
+    }
+}
+
+:root {
+    width: 1440px;
+    margin: auto;
+    background: rgb(172, 82, 172);
+    background: linear-gradient(149deg, rgba(172, 82, 172, 1) 0%, rgba(252, 180, 13, 1) 35%, rgba(255, 0, 248, 1) 100%);
+    color: white;
+}
+
+.dejavu {
+    -webkit-animation: mover 2s infinite alternate;
+    animation: mover 2s infinite alternate;
+}
+
+.alogo {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0;
+    margin: 0;
+
+}
+
+* {
+    color: rgb(44, 44, 44);
+}
+
+.link {
+    color: white;
+    background-color: rgba(128, 0, 248, 0.568);
+    border-radius: 25px;
+    margin: 20px;
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.link:link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:visited {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+
+}
+
+.link:hover {
+    text-decoration: none;
+    color: white;
+    text-decoration: underline;
+
+}
+
+.link:active {
+    text-decoration: none;
+    color: red;
+    text-decoration: double;
+
+}
+
+
+/*head*/
+@font-face {
+    font-family: 'Raleway', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+}
+
+.wrapper {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(51, 51, 51);
+    border-radius: 0 0 25px 25px;
+    -webkit-box-shadow: 0px 17px 15px 14px #00000086;
+    box-shadow: 0px 17px 15px 14px #00000086;
+}
+
+.titre {
+
+    background-image: url("image/logo.jpg");
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nomsite {
+    display: block;
+    position: relative;
+    table-layout: fixed;
+    max-width: 650px;
+    max-height: 222px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 35px;
+    padding: 15px;
+    border-radius: 25px;
+    border: solid 5px rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: clignoboite 5s infinite alternate;
+}
+
+.nomsite h1 {
+    position: relative;
+    top: 65px;
+    margin: 15px;
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 500%;
+    color: #fff;
+    animation: cligno 4s infinite alternate;
+}
+
+.nomsite h2 {
+    color: #fff;
+    padding: 15px;
+    font-size: 200%;
+    width: 430px;
+    text-shadow: 2px 9px 5px #000000;
+}
+
+.anime {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0 0 0 -500px;
+    animation: slide-right 20s cubic-bezier(.25, .46, .45, .94) infinite both;
+    width: 410px;
+}
+
+.nomsite li {
+    translate: .2s;
+}
+
+.titre div {
+    margin: 30px;
+    padding: 15px;
+    display: flex;
+    flex-direction: Row;
+    justify-content: center;
+    align-items: center;
+}
+
+.titre div div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.alogo {
+    margin: 50px;
+    transform: rotate(0deg);
+    opacity: 1;
+    transition: width 1s linear, height 1s linear, transform 2s ease-in 1s, opacity 1s ease-in 3.5s;
+}
+
+.logo {
+    display: flex;
+    border-radius: 15%;
+    width: 400px;
+    height: auto;
+}
+
+.alogo:hover {
+
+    
+    width: 330px;
+    height: 330px;
+    transform: rotate(360deg);
+    opacity: 0  ;
+
+}
+
+.navmain ul {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.link:hover {
+    -webkit-box-shadow: 0px 0px 36px 12px #DC00FF;
+    box-shadow: 0px 0px 36px 12px #DC00FF;
+    translate: scale(1.2);
+}
+
+.linkSpe img:hover {
+    border-radius: 100%;
+    -webkit-box-shadow: 0px 0px 36px 12px #DC00FF;
+    box-shadow: 0px 0px 36px 12px #DC00FF;
+    translate: scale(1.2);
+}
+
+.linkSpe {
+    background-color: rgba(252, 180, 13, 0);
+}
+
+.navmain li {
+    margin: 5px;
+    padding: 10px;
+    animation: mover 2s infinite alternate;
+}
+
+.navmain li:hover {
+    animation: mover 0s;
+}
+
+body {
+
+    font: 14px sans-serif;
+    background-color: transparent;
+}
+
+main {
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+}
+
+footer {
+    -webkit-box-shadow: 0px -17px 15px 14px #00000086;
+    box-shadow: 0px -17px 15px 14px #00000086;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(51, 51, 51);
+    border-radius: 25px 25px 0 0;
+}
+
+.agathe {
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(71, 71, 71);
+    border-radius: 30px;
+    font-size: 75%;
+    font-weight: 600;
+
+}
+
+footer a {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(71, 71, 71);
+    color: #fff;
+    border-radius: 25px;
+}
+
+footer p {
+    color: white;
+}
+
+footer p {
+    display: flex;
+    justify-content: space-around;
+    margin: 2px;
+}
+
+footer nav {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.barre {
+    text-decoration: line-through red 2px;
+}
+
+.neon:hover {
+    text-decoration: none;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px rgb(212, 0, 255),
+        0 0 82px rgb(212, 0, 255),
+        0 0 92px rgb(212, 0, 255),
+        0 0 102px rgb(212, 0, 255),
+        0 0 151px rgb(212, 0, 255);
+}
+
+.footerlink {
+    font-size: xx-small;
+    padding: 15px;
+    margin: 5px;
+    color: #fffF
+}
+
+.navfooter ul {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+
+
+}
+
+.navfooter:hover {
+    box-shadow: none;
+}
+
+.constru>h1 {
+    display: flex;
+    font-size: 200%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.gif {
+    border-radius: 25px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.sect_form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form {
+    margin: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.form>h2 {
+    display: flex;
+    font-size: 150%;
+    font-weight: 700;
+}
+
+.form-groupB {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 120%;
+    font-weight: 500;
+
+}
+
+.form-group label {
+    margin: 10px;
+    padding: 5px;
+
+}
+
+.btn_envoie {
+    border: none;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: hotpink;
+    color: #fff;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.btn_cancel {
+    border: none;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: grey;
+    color: black;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.ajouterPanier::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    /* background-image: url('/image/cart-plus.svg');*/
+}
+
+input {
+    padding: 10px 30px;
+}

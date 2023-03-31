@@ -1,36 +1,67 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-    {% block stylesheets %}
+<html lang="fr">
 
+<head>
+    {% block css %}
+        <!-- contenu du bloc css -->
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('assets/styles/reset.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/styles/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/styles/base.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/styles/cat.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/styles/index.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/styles/produit.css') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% endblock %}
 
     {% block javascripts %}
-
+        <!-- contenu du bloc javascripts -->
     {% endblock %}
-
+    <title>MegaNerd V2</title>
 </head>
-<header>
-    {% block header %}
-        <nav>
-            <a href="{{ path('home') }}">Home</a>
-            <a href="{{ path('categorie') }}">Categories</a>
-            <a href="{{ path('panier') }}">Cart</a>
-            <a href="{{ path('login') }}">Login</a>
-            <a href="{{ path('register') }}">Register</a>
-            <a href="{{ path('contact') }}">Contact</a>
-
-        </nav>
-    {% endblock %}
-</header>
 <body>
-{% block body %}{% endblock %}
-</body>
-{% block footer %}
-{% endblock %}
+<div class="wrapper">
+    {% block header %}
+    <header>
+        <div class="titre">
+            <div>
+                <a class="alogo" href="index.php"><img class="logo" src="/" alt="logo"></a>
+                <div class="nomsite">
+                    <h1> Meganerd </h1>
+                    <div class="anime">
+                        <h2> Le site qui a les cheveux encore plus gras</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navmain">
+            <ul>
+                <ul>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('categorie') }}">Categories</a></li>
+                    <li><a href="{{ path('panier') }}">Cart</a></li>
+                    <li><a href="{{ path('login') }}">Login</a></li>
+                    <li><a href="{{ path('register') }}">Register</a></li>
+                    <li><a href="{{ path('contact') }}">Contact</a></li>
+                </ul>
+            </ul>
+        </nav>
+        {% endblock %}
+    </header>
+    {% block body %}
+        <!-- contenu du bloc body -->
+
+    {% endblock %}
+
+
+    {% block footer %}
+        <!-- contenu du bloc footer -->
+    {% endblock %}
+</div>
+
 </html>
