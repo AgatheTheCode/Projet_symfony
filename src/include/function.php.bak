@@ -10,7 +10,7 @@ const DB_PASS = '';
 
 
 
-include_once __DIR__ . '/connect.php';
+include_once __DIR__ . '/connect.php.bak';
 $db = connectDB();
 
 function getAll($table): bool|array
