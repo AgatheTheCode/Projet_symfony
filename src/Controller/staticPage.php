@@ -15,7 +15,7 @@ use App\helper\User;
 
 use function Sodium\add;
 
-require_once __DIR__ . '/../include/function.php';
+require_once __DIR__ . '/../include/function.php.bak';
 
 
 class staticPage extends AbstractController
