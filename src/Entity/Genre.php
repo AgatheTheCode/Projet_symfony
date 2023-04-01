@@ -13,6 +13,7 @@ class Genre
     #[ORM\Column]
     private ?int $id = null;
 
+<<<<<<< HEAD
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
@@ -22,10 +23,13 @@ class Genre
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+=======
+>>>>>>> master
     public function getId(): ?int
     {
         return $this->id;
     }
+<<<<<<< HEAD
 
     public function getNom(): ?string
     {
@@ -62,4 +66,6 @@ class Genre
 
         return $this;
     }
+=======
+>>>>>>> master
 }

@@ -13,6 +13,7 @@ class Client
     #[ORM\Column]
     private ?int $id = null;
 
+<<<<<<< HEAD
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
@@ -40,10 +41,13 @@ class Client
     #[ORM\Column(length: 255)]
     private ?string $pseudo = null;
 
+=======
+>>>>>>> master
     public function getId(): ?int
     {
         return $this->id;
     }
+<<<<<<< HEAD
 
     public function getNom(): ?string
     {
@@ -152,4 +156,6 @@ class Client
 
         return $this;
     }
+=======
+>>>>>>> master
 }
