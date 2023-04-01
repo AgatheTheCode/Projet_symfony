@@ -3,10 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\LigneCommandeRepository;
-<<<<<<< HEAD
+
 use Doctrine\DBAL\Types\Types;
-=======
->>>>>>> master
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LigneCommandeRepository::class)]
@@ -17,21 +16,17 @@ class LigneCommande
     #[ORM\Column]
     private ?int $id = null;
 
-<<<<<<< HEAD
+
     #[ORM\Column(type: Types::BIGINT)]
     private ?string $id_produit = null;
 
     #[ORM\Column]
     private ?int $qte_commande = null;
 
-=======
->>>>>>> master
     public function getId(): ?int
     {
         return $this->id;
     }
-<<<<<<< HEAD
-
     public function getIdProduit(): ?string
     {
         return $this->id_produit;
@@ -55,6 +50,4 @@ class LigneCommande
 
         return $this;
     }
-=======
->>>>>>> master
 }

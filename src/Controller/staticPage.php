@@ -2,20 +2,23 @@
 
 namespace App\Controller;
 
-use App\Helper\UserClass;
-use Cassandra\Type\UserType;
+//Classes
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Form\RegistrationFormType;
-use App\helper\User;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\EntityManagerInterface;
 
-use function Sodium\add;
-
-require_once __DIR__ . '/../include/function.php.bak';
+//mes entités
+use App\Entity\Categories;
+use App\Entity\Produits;
+use App\Entity\Genre;
+use App\Entity\Client;
+use App\Entity\LigneCommande;
+use App\Entity\Commande;
+use App\Entity\User;
 
 
 class staticPage extends AbstractController
@@ -24,21 +27,28 @@ class staticPage extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home(): Response
+    public function home(EntityManagerInterface $entityManager): Response
     {
-
+        //chargement du titre du site
         $index = [
             'titre' => 'Meganerd',
             'soustitre' => 'Un site qui à les cheveux gras',
             'logo' => 'image/logo.jpg'
 
         ];
+        // Récupère le dépôt lié à la classe Castle
+        $produits = $entityManager->getRepository(Produits::class)->findAll();
+        $categorie = $entityManager->getRepository(Categories::class)->findAll();
+        $genre = $entityManager->getRepository(Genre::class)->findAll();
         $titre = 'Home';
-        $produit = getAll('produit');
+
+        dump($produits);
 
         return $this->render('home.html.twig', [
             'titre' => $titre,
-            'produit' => $produit,
+            'produits' => $produits,
+            'categorie' => $categorie,
+            'genre' => $genre,
             'index' => $index
         ]);
     }
@@ -46,25 +56,19 @@ class staticPage extends AbstractController
     /**
      * @Route("/categorie", name="categorie")
      */
-    public function categorie(): Response
+    public function categorie(EntityManagerInterface $entityManager): Response
     {
-        $titre = 'Catégorie';
-        $categorie = getAll('categorie');
-        $totalcat = count($categorie);
-        $stockCat = stockType('categorie');
-        $stockGenre = stockType('genre');
-        $stockUnique = stockProduit('id_produit');
-        $genre = getAll('genre');
+        $titre = 'Categorie';
+        $categorie = $entityManager->getRepository(Categories::class)->findAll();
+$genre = $entityManager->getRepository(Genre::class)->findAll();
+
+
 
 
         return $this->render('categorie.html.twig', [
 
             'titre' => $titre,
             'categorie' => $categorie,
-            'totalcat' => $totalcat,
-            'stockCat' => $stockCat,
-            'stockGenre' => $stockGenre,
-            'stockUnique' => $stockUnique,
             'genre' => $genre
         ]);
     }
@@ -136,40 +140,4 @@ class staticPage extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/login", name="login")
-     */
-    public function login(): Response
-    {
-        $titre = 'Login';
-
-        return $this->render('login.html.twig', [
-            'titre' => $titre
-        ]);
-    }
-
-    /**
-     * @Route("/register", name="register")
-     **/
-    Public function register(): Response
-    {
-        $titre = 'Register';
-        /*p$user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            //$password = $passwordEncoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($password);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-            return $this->redirectToRoute('home');
-        }
-
-        return $this->render('register.html.twig', [
-            'titre' => $titre,
-            'form' => $form->createView(),
-        ]);*/
-    }
 }

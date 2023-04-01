@@ -3,10 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
-<<<<<<< HEAD
+
 use Doctrine\DBAL\Types\Types;
-=======
->>>>>>> master
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
@@ -17,7 +16,7 @@ class Commande
     #[ORM\Column]
     private ?int $id = null;
 
-<<<<<<< HEAD
+
     #[ORM\Column(type: Types::BIGINT)]
     private ?string $id_prod = null;
 
@@ -30,13 +29,10 @@ class Commande
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_commande = null;
 
-=======
->>>>>>> master
     public function getId(): ?int
     {
         return $this->id;
     }
-<<<<<<< HEAD
 
     public function getIdProd(): ?string
     {
@@ -85,6 +81,5 @@ class Commande
 
         return $this;
     }
-=======
->>>>>>> master
+
 }

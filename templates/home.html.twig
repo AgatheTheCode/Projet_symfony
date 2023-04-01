@@ -7,14 +7,12 @@
                 <h3> Produits Aléatoire : </h3>
                 <div class ="randProd">
                     <ul>
-                        {% for element in produit %}
+                        {% for element in produits %}
                             <div>
-                                <li><a class="ignore" href="produitUnique.html.twig"><img src="../assets/{{element.image_produit}}.jpg"></a></li>
-                                <p> Nom :{{element.nom_produit}} </p>
-                                <p> Référence : 000 {{element.id_categorie}}  {{element.id_genre}}  {{element.id_produit}}
-                                <p> Prix :{{element.prix_produit}}€ </p>
-                                <p> Quantité : {{element.qte_produit}}</p>
-                                <p> Note des utilisateurs :{{element.note_produit}}/5 </p>
+                                <li><a class="ignore" href="produitUnique.html.twig?{{ element.id }}"><img src="../assets/{{element.image}}.jpg"></a></li>
+                                <p> Nom :{{element.nom}} </p>
+                                <p> Prix :{{element.prix}}€ </p>
+                                <p> Note des utilisateurs :{{element.note}}/5 </p>
                                 </li>
                             </div>
                         {% endfor %}

@@ -9,11 +9,13 @@
         "ext-iconv": "*",
         "ext-pdo": "*",
         "doctrine/doctrine-migrations-bundle": "^3.0",
+        "doctrine/orm": "*",
         "sensio/framework-extra-bundle": "^6.2",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",
+        "symfony/form": "6.3.*",
         "symfony/framework-bundle": "6.3.*",
         "symfony/runtime": "6.3.*",
         "symfony/security-bundle": "6.3.*",
@@ -21,9 +23,7 @@
         "symfony/webpack-encore-bundle": "^1.16",
         "symfony/yaml": "6.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^3.5",
-        "doctrine/orm": "*"
-
+        "twig/twig": "^3.5"
     },
     "config": {
         "allow-plugins": {
