@@ -40,6 +40,9 @@ class Client
     #[ORM\Column(length: 255)]
     private ?string $pseudo = null;
 
+    #[ORM\OneToOne(mappedBy: 'client', cascade: ['persist', 'remove'])]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -149,6 +152,23 @@ class Client
     public function setPseudo(string $pseudo): self
     {
         $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        // set the owning side of the relation if necessary
+        if ($user->getClient() !== $this) {
+            $user->setClient($this);
+        }
+
+        $this->user = $user;
 
         return $this;
     }

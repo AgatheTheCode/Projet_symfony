@@ -4,6 +4,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -23,13 +24,18 @@ class LoginType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Log in'
+            ])
+            ->add('rememberMe', CheckboxType::class, [
+                'label' => 'Remember me',
+                'required' => false,
             ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-        // configure your form options here
+            // configure your form options here
         ]);
     }
 }
