@@ -29,6 +29,7 @@ class staticPage extends AbstractController
      */
     public function home(EntityManagerInterface $entityManager): Response
     {
+
         //chargement du titre du site
         $index = [
             'titre' => 'Meganerd',
@@ -176,4 +177,8 @@ $genre = $entityManager->getRepository(Genre::class)->findAll();
             'genres' => $genres
         ]);
     }
+    /**
+     * @Route("inser", name="Insert")
+     */
+
 }
