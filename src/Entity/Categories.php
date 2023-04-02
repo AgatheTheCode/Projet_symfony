@@ -22,6 +22,7 @@ class Categories
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+
     public function getId(): ?int
     {
         return $this->id;

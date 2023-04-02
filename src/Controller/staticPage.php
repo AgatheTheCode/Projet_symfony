@@ -65,7 +65,7 @@ $genre = $entityManager->getRepository(Genre::class)->findAll();
 
 
 
-        return $this->render('categorie.html.twig', [
+        return $this->render('pages/categorie.html.twig', [
 
             'titre' => $titre,
             'categorie' => $categorie,
@@ -83,7 +83,7 @@ $genre = $entityManager->getRepository(Genre::class)->findAll();
 
         $id = $_GET['id'] ?? null;
 
-        return $this->render('produit.html.twig', [
+        return $this->render('pages/produit.html.twig', [
             'titre' => $titre,
             'produits' => $produits,
             'produit' => getOne('produit', 'id_categorie', $id)
@@ -100,7 +100,7 @@ $genre = $entityManager->getRepository(Genre::class)->findAll();
 
         $id = $_GET['id'] ?? null;
 
-        return $this->render('produitUnique.html.twig', [
+        return $this->render('pages/produitUnique.html.twig', [
             'titre' => $titre,
             'produits' => $produits,
             'produit' => getOne('produit', 'id_produit', $id)
@@ -123,7 +123,7 @@ $genre = $entityManager->getRepository(Genre::class)->findAll();
             insertPanier($id_produit, $id_client, $quantite);
         }
 
-        return $this->render('panier.html.twig', [
+        return $this->render('pages/panier.html.twig', [
             'titre' => $titre
         ]);
     }
@@ -135,9 +135,45 @@ $genre = $entityManager->getRepository(Genre::class)->findAll();
     {
         $titre = 'Contact';
 
-        return $this->render('contact.html.twig', [
+        return $this->render('pages/contact.html.twig', [
             'titre' => $titre
         ]);
     }
 
+    /**
+     * @Route("categorie_detail", name="Categorie_detail")
+     */
+    public function categorie_detail(EntityManagerInterface $entityManager): Response
+    {
+        $id = $_GET['id'] ?? null;
+        $titre = 'Categorie_detail';
+        $produits = $entityManager->getRepository(Produits::class)->findAll();
+        $categories = $entityManager->getRepository(Categories::class)->findBy(['id' => $id]);
+        dump($produits);
+        dump($categories);
+
+        return $this->render('pages/categorie_detail.html.twig', [
+            'titre' => $titre,
+            'produits' => $produits,
+            'categories' => $categories,
+        ]);
+    }
+    /**
+     * @Route("genre_detail", name="Genre_detail")
+     */
+    public function genre_detail(EntityManagerInterface $entityManager): Response
+    {
+        $id = $_GET['id'] ?? null;
+        $titre = 'Genre_detail';
+        $produits = $entityManager->getRepository(Produits::class)->findAll();
+        $genres = $entityManager->getRepository(Genre::class)->findBy(['id' => $id]);
+        dump($produits);
+        dump($genres);
+
+        return $this->render('pages/genre_detail.html.twig', [
+            'titre' => $titre,
+            'produits' => $produits,
+            'genres' => $genres
+        ]);
+    }
 }

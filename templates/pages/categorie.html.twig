@@ -7,7 +7,7 @@
                     <div class="ListeN1">
                         <h4>{{ element.name }} </h4>
                         <div>
-                            <a href="categories_detail.php?id={{ element.id }}">
+                            <a href="{{ path('Categorie_detail') }}?id={{ element.id }}">
                                 <img src="../assets/{{ element.image }}" alt="">
                             </a>
                         </div>
@@ -20,7 +20,7 @@
                     <div class="ListeN1">
                         <h4>{{ item.nom }} </h4>
                         <div>
-                            <a href="genre_detail.php?id={{ item.id }}">
+                            <a href="{{ path('Genre_detail') }}?id={{ item.id }}">
                                 <img src="../assets/{{ item.image }}" alt="">
                             </a>
                         </div>

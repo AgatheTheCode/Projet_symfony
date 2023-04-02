@@ -9,7 +9,7 @@
                     <ul>
                         {% for element in produits %}
                             <div>
-                                <li><a class="ignore" href="pages/produitUnique.html.twig?{{ element.id }}"><img src="../assets/{{element.image}}.jpg"></a></li>
+                                <li><a class="ignore" href="produitUnique.html.twig?{{ element.id }}"><img src="../assets/{{element.image}}.jpg"></a></li>
                                 <p> Nom :{{element.nom}} </p>
                                 <p> Prix :{{element.prix}}€ </p>
                                 <p> Note des utilisateurs :{{element.note}}/5 </p>
